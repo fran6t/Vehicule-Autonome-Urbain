@@ -1,0 +1,84 @@
+from PyQt4 import QtGui,QtCore
+
+class Animation(object):
+	def __init__(self):
+		App.Console.PrintMessage('init')
+		App.ActiveDocument.recompute()
+		self.timer = QtCore.QTimer()
+		QtCore.QObject.connect(self.timer, QtCore.SIGNAL("timeout()"), self.my_update)
+		self.timer.start(100)
+
+		self.deplX = 0 # Deplacement le long de la route
+		self.deplR = 0 # Rotation
+		self.deplRP= 0 # Rotation pare-Brise
+		self.deplT = 0 # Deplacement vers le trotoir
+		self.phase = 1 # Deplacement selon axe X
+		self.sens = -1
+
+	def my_update(self):
+		if ( self.phase == 1 ) :
+			if ( self.deplX == -5500 ) :
+				self.phase = 2
+			#	self.sens = -1
+			#if ( self.deplX >= 1700 ) :
+			#	self.sens = 1
+			#	self.phase = 2
+			self.deplX = self.deplX + (100 * self.sens)
+			#Vehicule
+			FreeCAD.getDocument("In_Situ").getObject("Assemblage_01").Placement = App.Placement(App.Vector(-250,-1000+self.deplX,300),App.Rotation(App.Vector(0.57735,0.57735,0.57735),120))
+			#Parre-Brise		
+			#FreeCAD.getDocument("in_situ").getObject("Parre_Brise_01").Placement = App.Placement(App.Vector(-80 + self.deplX,1500,-350),App.Rotation(App.Vector(0,0,0),0))
+			#Capot-Coffre
+			#FreeCAD.getDocument("in_situ").getObject("Capot_Coffre_01").Placement = App.Placement(App.Vector(480 + self.deplX,1000,-800),App.Rotation(App.Vector(0,0,0),0))
+
+		elif (self.phase == 2 )  : # Phase 2 rotation a droite
+			App.getDocument("In_Situ").Assemblage_01.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,0,1),-1), App.Vector(-158.123,-6651.89,728.389)).multiply(App.getDocument("In_Situ").Assemblage_01.Placement)
+			if ( self.deplR == -90) :
+				self.phase = 3   # On passe en phase 3 ouverture verriere
+				App.getDocument("In_Situ").Assemblage_01.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,0,1),-90), App.Vector(-166.829,-6651.18,728.389)).multiply(App.getDocument("In_Situ").Assemblage_01.Placement)
+			else :
+				self.deplR = self.deplR - 1
+				#Vehicule
+				#FreeCAD.getDocument("In_Situ").getObject("Assemblage_Pare_Brise_A_Part_01").Placement = App.Placement(App.Vector(self.deplX,0,0),App.Rotation(App.Vector(0,1,0),self.deplR))
+				#Parre-Brise		
+				#FreeCAD.getDocument("in_situ").getObject("Parre_Brise_01").Placement = App.Placement(App.Vector(-80 + self.deplX,1500,-350),App.Rotation(App.Vector(0,1,0),self.deplR))
+				#Capot-Coffre
+				#FreeCAD.getDocument("in_situ").getObject("Capot_Coffre_01").Placement = App.Placement(App.Vector(480 + self.deplX,1000,-800),App.Rotation(App.Vector(0,1,0),self.deplR))
+		elif ( self.phase == 3) :
+			Msg(self.deplT)
+			if ( self.deplT < -2200) :
+				self.phase = 4				
+			else : 
+				self.deplT = self.deplT + (100 * self.sens)		
+				#FreeCAD.getDocument("In_Situ").getObject("Assemblage_01").Placement = App.Placement(App.Vector(self.deplT,-5458.61,300),App.Rotation(App.Vector(0.999924,-0.0087262,-0.0087262),90.0044))
+				FreeCAD.getDocument("In_Situ").getObject("Assemblage_01").Placement = App.Placement(App.Vector(self.deplT,-6500,300),App.Rotation(App.Vector(0.999924,-0.0087262,-0.0087262),90.0044))
+		elif (self.phase == 4 ) :
+			Gui.getDocument("In_Situ").getObject("Assemblage_01").Visibility=False
+			Gui.getDocument("In_Situ").getObject("Assemblage_Pare_Brise_A_Part_01").Visibility=True
+			Gui.getDocument("In_Situ").getObject("Parre_Brise_01").Visibility=True
+			if ( self.deplRP == 90 ) :
+				animation.stop()
+			else :
+				App.getDocument("In_Situ").Parre_Brise_01.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),1), App.Vector(-2350,0,1800)).multiply(App.getDocument("In_Situ").Parre_Brise_01.Placement)
+				self.deplRP = self.deplRP + 1
+			
+
+	def stop(self):
+		self.deplX = 0
+		self.deplR = 0
+		self.phase = 1 # Deplacement selon axe X
+		self.sens = 1
+		self.timer.stop()      
+		#On remet à la bonne place les elements deplaces
+		#Vehicule d'origine de nouveau visible
+		Gui.getDocument("In_Situ").getObject("Assemblage_01").Visibility=True
+		FreeCAD.getDocument("In_Situ").getObject("Assemblage_01").Placement = App.Placement(App.Vector(-250,-1000,300),App.Rotation(App.Vector(0.57735,0.57735,0.57735),120))
+		#On remet le pare-brise en place
+		FreeCAD.getDocument("In_Situ").getObject("Parre_Brise_01").Placement = App.Placement(App.Vector(-2380,-6140,1800),App.Rotation(App.Vector(1,0,0),90))
+		#On cache le vehicule sans pare-brise		
+		Gui.getDocument("In_Situ").getObject("Assemblage_Pare_Brise_A_Part_01").Visibility=False
+		#On cache le pare-brise
+		Gui.getDocument("In_Situ").getObject("Parre_Brise_01").Visibility=False
+
+
+animation = Animation()
