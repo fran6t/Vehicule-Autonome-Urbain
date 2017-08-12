@@ -44,7 +44,7 @@ Les feux de signalisations, ajouter les détails, mécanisme d'ouverture, motori
 
 Pour executer l'animation :
 ===========================
-
+Vue de l'animation sur youtube https://youtu.be/_3Aje3DATB8
 Ouvrir le fichier In_Situ.fsctd
 Copier coller le code de la macro In_Situ.macro dans la console python
 La console python est obtenue en cliquant sur "Affichage" "Panneaux" "Console Python"
