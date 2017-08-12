@@ -50,12 +50,33 @@ Copier coller le code de la macro In_Situ.macro dans la console python
 La console python est obtenue en cliquant sur "Affichage" "Panneaux" "Console Python"
 Pour arreter la macro il faut taper dans la console animation.stop() 
 
+
 <table>
 <tr><td>
-<img src="https://raw.githubusercontent.com/fran6t/FreeCad-Modelisme-Maison-Garde-Barriere/master/Jpg/Nomenclature.jpg" title="Nomemclature" />
+Véhicule 3 quarts face avant
+</td></tr>
+<tr><td>
+<img src="https://raw.githubusercontent.com/fran6t/Vehicule-Autonome-Urbain/master/v0.1/Assemblage.jpg" title="Véhicule 3 quarts face avant" />
+</td></tr>
+<tr><td>
+Véhicule sur avenue
 </td></tr>
 <tr><td>
 <br />
-<img src="https://raw.githubusercontent.com/fran6t/FreeCad-Modelisme-Maison-Garde-Barriere/master/Jpg/3D.jpg" title="Vue 3D" />
+<img src="https://raw.githubusercontent.com/fran6t/Vehicule-Autonome-Urbain/master/v0.1/In_Situ.jpg" title="Vue avenue" />
+</td></tr>
+<tr><td>
+Début ouverture face avant
+</td></tr>
+<tr><td>
+<br />
+<img src="https://github.com/fran6t/Vehicule-Autonome-Urbain/blob/master/v0.1/Chargement-passager-1.jpg" title="Vue avenue" />
+</td></tr>
+<tr><td>
+Ouverture face avant complète
+</td></tr>
+<tr><td>
+<br />
+<img src="https://raw.githubusercontent.com/fran6t/Vehicule-Autonome-Urbain/master/v0.1/Chargement-passager-2.jpg" title="Vue avenue" />
 </td></tr>
 </table>
