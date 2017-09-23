@@ -13,10 +13,10 @@ Concept du véhicule :
 
 - Pas de poste de conduite
 - Forme de cube pour un encombrement optimal sur la voirie (pas d’empiétement ou empreinte minimal lors de la prise en compte de passagers)
-- Véhicule à traction avant et roues directrices à l'arrière
-- 2 passagers plus les bagages / 4 passager
-- Chargement des passagers par l'avant avec facilité (approche des sièges en configuration deux passagers)
-- Maintenance aisée avec batterie interchangeable
+- Véhicule à 3 roues pour permettre une meilleure mobilité et surtout une simplicité mécanique accrue
+- 2 passagers plus les bagages
+- Chargement des passagers par l'avant
+- Maintenance aisée avec batterie ou motorisation interchangeable
 - Véhicule uniquement pour circuler en ville
 
 
@@ -50,17 +50,6 @@ Copier coller le code de la macro In_Situ.macro dans la console python
 La console python est obtenue en cliquant sur "Affichage" "Panneaux" "Console Python"
 Pour arreter la macro il faut taper dans la console animation.stop() 
 
-Fils de discussion sur le forum FreeCAD :
-=========================================
-https://forum.freecadweb.org/viewtopic.php?f=24&t=23877
-
-Site officiel FreeCAD :
-=======================
-
-Inspiration et sources d'info :
-===============================
-Roue autonome possédant motorisation et suspension Active Wheel de Michelin https://fr.wikipedia.org/wiki/Active_Wheel
-Jante inspirée du dessin de Walgri  https://forum.freecadweb.org/viewtopic.php?f=24&t=10915
 
 <table>
 <tr><td>
