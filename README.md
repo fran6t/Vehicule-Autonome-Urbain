@@ -67,7 +67,13 @@ Jante inspirée du dessin de Walgri  https://forum.freecadweb.org/viewtopic.php?
 Véhicule 3 quarts face avant
 </td></tr>
 <tr><td>
-<img src="https://raw.githubusercontent.com/fran6t/Vehicule-Autonome-Urbain/master/v0.1/Assemblage.jpg" title="Véhicule 3 quarts face avant" />
+<img src="https://github.com/fran6t/Vehicule-Autonome-Urbain/blob/master/Img/Assemblage.jpg" title="Véhicule 3 quarts face avant" />
+</td></tr>
+<tr><td>
+Chaergement passagers par l'avant
+</td></tr>
+<tr><td>
+<img src="https://github.com/fran6t/Vehicule-Autonome-Urbain/blob/master/Img/Anim-Chargement.gif" title="Chargement passagers par l'avant" />
 </td></tr>
 <tr><td>
 Véhicule sur avenue
