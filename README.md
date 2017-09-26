@@ -56,6 +56,11 @@ https://forum.freecadweb.org/viewtopic.php?f=24&t=23877
 
 Site officiel FreeCAD :
 =======================
+https://www.freecadweb.org/?lang=fr
+
+Billets sur mon Blog :
+======================
+http://passion.myouaibe.com/index.php/post/Conception-3D-vehicule-autonome
 
 Inspiration et sources d'info :
 ===============================
